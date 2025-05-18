@@ -1,0 +1,186 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-sans);
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+   /* Ensure Inter font is primary */
+}
+
+@layer base {
+  :root {
+    /* Original Light Theme (Teal-based) - Kept for reference or if dark mode is toggled off */
+    --background: 180 60% 96%; /* Light Teal - HSL for --background */
+    --foreground: 210 40% 9.8%; /* Dark Blue-Gray for contrast on light teal */
+
+    --card: 180 60% 98%; /* Lighter Teal for Cards */
+    --card-foreground: 210 40% 9.8%;
+
+    --popover: 180 60% 98%;
+    --popover-foreground: 210 40% 9.8%;
+
+    --primary: 180 100% 25.1%; /* Deep Teal */
+    --primary-foreground: 180 25% 95%; /* Light Teal/White for contrast on Deep Teal */
+
+    --secondary: 180 40% 80%; /* Muted Teal */
+    --secondary-foreground: 180 100% 25.1%;
+
+    --muted: 180 30% 88%;
+    --muted-foreground: 180 25% 45%;
+
+    --accent: 60 100% 25.1%; /* Muted Olive Green */
+    --accent-foreground: 60 25% 95%; /* Light Green/White for contrast on Olive */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 180 30% 75%;
+    --input: 180 30% 80%;
+    --ring: 180 100% 25.1%; /* Deep Teal for rings */
+
+    --radius: 0.5rem;
+
+    /* Chart colors can be used for element categories */
+    --chart-1: 0 70% 60%; /* Reddish */
+    --chart-2: 30 70% 60%; /* Orange */
+    --chart-3: 60 70% 50%; /* Yellowish */
+    --chart-4: 120 60% 55%; /* Greenish */
+    --chart-5: 200 70% 60%; /* Bluish */
+
+    /* Sidebar colors adjusted to the new theme */
+    --sidebar-background: 180 50% 95%;
+    --sidebar-foreground: 180 80% 20%;
+    --sidebar-primary: 180 100% 25.1%;
+    --sidebar-primary-foreground: 180 25% 95%;
+    --sidebar-accent: 60 80% 30%;
+    --sidebar-accent-foreground: 60 25% 95%;
+    --sidebar-border: 180 30% 75%;
+    --sidebar-ring: 180 100% 25.1%;
+
+    /* Element Explorer Specific Dark Theme Vars (can be empty for light mode) */
+    /* These are fallback if not overridden by specific dark mode styles */
+    --ee-page-bg-start: hsl(var(--background));
+    --ee-page-bg-end: hsl(var(--background));
+    --ee-element-bg: hsl(var(--card)); /* Will be overridden by category colors */
+    --ee-element-border: hsl(var(--border)); /* Will be overridden by category colors */
+    --ee-element-text-primary: hsl(var(--card-foreground));
+    --ee-element-text-secondary: hsl(var(--muted-foreground));
+    --ee-element-hover-glow: hsl(var(--primary)); /* Fallback, will be dynamic */
+    --ee-element-gradient-start: hsl(var(--card)); /* Not used if flat category colors */
+    --ee-element-gradient-end: hsl(var(--card)); /* Not used if flat category colors */
+  }
+
+  .dark {
+    /* Dark Mode Overrides for Element Explorer - Updated with new color scheme */
+    /* Page background variables (center/edges) are no longer used for body gradient */
+    /* --page-bg-dark-center: #0A3142; */ /* Deep Blue for radial center */
+    /* --page-bg-dark-edges: #1A1A1A; */ /* Dark Gray/Black for radial edges */
+
+    /* General Dark Theme (ShadCN compatible) */
+    /* Background will be set by the linear gradient on body */
+    --background: 0 0% 7%; /* Fallback #121212 (used by some ShadCN components if not overridden) */
+    --foreground: 0 0% 98%; /* #FAFAFA (General text color for UI elements like titles, footers) */
+
+    --card: 0 0% 13%; /* #212121 (Used for filters, legend background, modals) - slightly lighter than darkest bg */
+    --card-foreground: 0 0% 98%; /* #FFFFFF */
+
+    --popover: 0 0% 10%; /* Darker popover background e.g. #1A1A1A */
+    --popover-foreground: 0 0% 95%; /* #F2F2F2 */
+
+    --primary: 199 100% 50%; /* Brighter accent for primary actions - e.g. #00A3E0 */
+    --primary-foreground: 0 0% 10%; /* Contrast for primary */
+
+    --secondary: 0 0% 20%; /* #333333 */
+    --secondary-foreground: 0 0% 95%; /* #F2F2F2 */
+
+    --muted: 0 0% 15%; /* #262626 */
+    --muted-foreground: 0 0% 65%; /* #A6A6A6 (e.g. footer text, placeholder labels in table view) */
+
+    --accent: 199 80% 55%; /* Similar to primary, for other accents */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%; /* Darker red for destructive actions */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 25%; /* #404040 (General border for input, dialog, non-element cards) */
+    --input: 0 0% 18%; /* #2E2E2E (Input background) */
+    --ring: 199 100% 50%; /* Focus ring color */
+
+    /* Chart colors - adjust if charts are used extensively */
+    --chart-1: 0 60% 50%;
+    --chart-2: 30 60% 50%;
+    --chart-3: 60 60% 40%;
+    --chart-4: 120 50% 45%;
+    --chart-5: 200 60% 50%;
+
+    /* Dark Sidebar colors (if sidebar is used) */
+    --sidebar-background: 0 0% 12%;
+    --sidebar-foreground: 0 0% 80%;
+    --sidebar-primary: 199 80% 45%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 199 70% 45%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 25%;
+    --sidebar-ring: 199 80% 45%;
+
+    /* Element specific text colors for dark mode, if not overridden by category */
+    --ee-element-text-primary: #FFFFFF;
+    --ee-element-text-secondary: #CCCCCC;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border; /* Default border color for all elements */
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Apply page gradient, using CSS variables for theme adaptability */
+    /* Light mode will use a simple background as defined in :root */
+  }
+  .dark body {
+    /* Updated background gradient */
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Ensure gradient covers the whole viewport */
+  }
+
+  /* Animation for element cells loading */
+  @keyframes elementEntryAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
+  }
+  .animate-element-entry {
+    animation: elementEntryAnimation 0.3s ease-out forwards;
+    opacity: 0; /* Start hidden, animation will make it visible */
+  }
+}
+
+
+/* Custom scrollbar for webkit browsers - dark theme adapted */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted) / 0.5); /* Muted background for track with some transparency */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--secondary)); /* Secondary color for thumb */
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary)); /* Primary color for thumb hover */
+}
+
+    
